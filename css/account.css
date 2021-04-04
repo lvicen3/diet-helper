@@ -6,32 +6,30 @@
 
 .profile-picture {
   border-radius: 25px;
-  max-width: 350px;
+  max-width: 375px;
   margin: auto;
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 .module {
   border: 3px solid #343434;
-  border-radius: 25px;
+  border-radius: 20px;
   background-color: #99bbad;
   color: #464f41;
   margin: 15px;
-  margin-left: 5px;
+  margin-right: 0;
   padding: 15px;
   text-align: left;
 }
 
-.module h1 {
-  display: inline;
+.module-one-heading {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   margin: auto 0;
 }
 
 .module p {
   display: inline;
-  font-size: 20px;
   font-weight: 600;
 }
 
@@ -42,21 +40,58 @@
   width: 95%;
 }
 
+.module-content-1 {
+  text-align: center;
+  min-height: 300px;
+}
+
+.module-content-1 hr {
+  background-color: white;
+  height: 2px;
+  border: none;
+  width: 95%;
+}
+
+.module-content-2 {
+  padding: 0 10%;
+  text-align: left;
+}
+
+.module-content-2 p {
+  text-align: right;
+}
+
+.custom-input {
+  background-color: transparent;
+  border-radius: 5px;
+  border-style: dashed solid;
+  text-align: center;
+}
+
 .editOption {
   text-align: center;
   padding-top: 25px;
 }
 
 .save-cancel-btn {
+  border-radius: 10px;
   padding: 5px;
   width: 75%;
 }
 
-.custom-grid-2 {
+.col2-grid {
   display: grid;
   grid-template-columns: 125px  auto;
   grid-template-rows: auto;
   grid-column-gap: 0;
   text-align: left;
   padding: 0 15px;
+}
+
+.col2-grid-auto {
+  display: grid;
+  grid-template-columns: auto  auto;
+  grid-template-rows: auto;
+  grid-column-gap: 0;
+  text-align: left;
 }

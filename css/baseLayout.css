@@ -3,6 +3,14 @@ body {
   background-color: #343434;
 }
 
+h1, h2, h3, h4, h5 {
+
+}
+
+p {
+  font-size: 18px;
+}
+
 .top-nav {
   background-color: #343434F3;
 }
