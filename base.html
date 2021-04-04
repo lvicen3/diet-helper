@@ -24,99 +24,98 @@
 
 <body>
   <section id="pageContainer">
-      <div class="top-nav sticky-top">
-        <div class="row align-items-center" style="margin-right: 0">
-          <div class="col-1">
-            <!-- Simple Hamburger Style Menu -->
-            <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu(); hiddenMenuPressed();">
-              <i class="fas fa-hamburger hamburgerMenu hidden-menu"></i>
-            </a>
-          </div>
-          <div class="col-10">
-            <div class="title">
-              <h1>Foodipedia</h1>
-            </div>
-          </div>
-          <div class="col-1">
-            <!-- Helps to center Title -->
-          </div>
+    <div class="top-nav sticky-top">
+      <div class="row align-items-center" style="margin-right: 0">
+        <div class="col-1">
+          <!-- Simple Hamburger Style Menu -->
+          <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu(); hiddenMenuPressed();">
+            <i class="fas fa-hamburger hamburgerMenu hidden-menu"></i>
+          </a>
+        </div>
+        <div class="col-10">
+          <a href="index.html" class="title">
+            <h1>Foodipedia</h1>
+          </a>
+        </div>
+        <div class="col-1">
+          <!-- Helps to center Title -->
         </div>
       </div>
+    </div>
 
+    <div id="hiddenMenu" class="hidden-side-menu">
+      <a href="#" class="custom-action">
+        <i class="fas fa-th-list custom-icon"></i>
+        <h5 class="custom-icon-text">Your Plan</h5>
+      </a>
+      <br>
+      <a href="#" class="custom-action">
+        <i class="fas fa-shopping-cart custom-icon"></i>
+        <h5 class="custom-icon-text">Groceries</h5>
+      </a>
+      <br>
+      <a href="#" class="custom-action">
+        <i class="far fa-check-circle custom-icon"></i>
+        <h5 class="custom-icon-text">Your Goal</h5>
+      </a>
+      <br>
+      <a href="#" class="custom-action">
+        <i class="fas fa-history custom-icon"></i>
+        <h5 class="custom-icon-text">History</h5>
+      </a>
+      <br>
+      <a href="#" class="custom-action">
+        <i class="fas fa-user-circle custom-icon"></i>
+        <h5 class="custom-icon-text">Account</h5>
+      </a>
+      <br>
+      <a href="#" class="custom-action">
+        <i class="fas fa-sign-out-alt custom-icon"></i>
+        <h5 class="custom-icon-text">Sign Out</h5>
+      </a>
+    </div>
+  </section>
+</body>
 
-      <div id="hiddenMenu" class="hidden-side-menu">
-        <a href="#" class="custom-action">
-          <i class="fas fa-th-list custom-icon"></i>
-          <h5 class="custom-icon-text">Your Plan</h5>
-        </a>
-        <br>
-        <a href="#" class="custom-action">
-          <i class="fas fa-shopping-cart custom-icon"></i>
-          <h5 class="custom-icon-text">Groceries</h5>
-        </a>
-        <br>
-        <a href="#" class="custom-action">
-          <i class="far fa-check-circle custom-icon"></i>
-          <h5 class="custom-icon-text">Your Goal</h5>
-        </a>
-        <br>
-        <a href="#" class="custom-action">
-          <i class="fas fa-history custom-icon"></i>
-          <h5 class="custom-icon-text">History</h5>
-        </a>
-        <br>
-        <a href="#" class="custom-action">
-          <i class="fas fa-user-circle custom-icon"></i>
-          <h5 class="custom-icon-text">Account</h5>
-        </a>
-        <br>
-        <a href="#" class="custom-action">
-          <i class="fas fa-sign-out-alt custom-icon"></i>
-          <h5 class="custom-icon-text">Sign Out</h5>
-        </a>
-      </div>
-    </section>
-  </body>
+<script type="text/javascript">
+  var active = true;
 
-  <script type="text/javascript">
-    var active = true;
-
-    function hiddenSideMenu() {
-      if (active) {
-        $("#hiddenMenu").css("width", "40%");
-        active = false;
-      } else {
-        $("#hiddenMenu").css("width", "0");
-        active = true;
-      }
+  function hiddenSideMenu() {
+    if (active) {
+      $("#hiddenMenu").css("width", "40%");
+      active = false;
+    } else {
+      $("#hiddenMenu").css("width", "0");
+      active = true;
     }
+  }
 
-    // Hamburger Interact Color
-    var hiddenToggle = false;
+  // Hamburger Interact Color
+  var hiddenToggle = false;
 
-    function hiddenMenuPressed() {
-      if (!hiddenToggle) {
-        $(".hamburgerMenu").css("color", "#99bbad");
-        hiddenToggle = true;
-      } else {
-        $(".hamburgerMenu").css("color", "#ebd8b7");
-        hiddenToggle = false;
-      }
+  function hiddenMenuPressed() {
+    if (!hiddenToggle) {
+      $(".hamburgerMenu").css("color", "#99bbad");
+      hiddenToggle = true;
+    } else {
+      $(".hamburgerMenu").css("color", "#ebd8b7");
+      hiddenToggle = false;
     }
+  }
 
-    // Adjust to Large Window
-    var largeScreen = window.matchMedia('screen and (min-width: 1500px)');
-    largeWindow(largeScreen);
-    largeScreen.addListener(largeWindow);
+  // Adjust to Large Window
+  var largeScreen = window.matchMedia('screen and (min-width: 1500px)');
+  largeWindow(largeScreen);
+  largeScreen.addListener(largeWindow);
 
-    function largeWindow(screenSize) {
-      if (screenSize.matches) {
-        console.log("Detected: Screen Size More than 1250px!");
-        $("#pageContainer").css("width", "50%");
-      } else {
-        $("#pageContainer").css("width", "100%");
-      }
+  function largeWindow(screenSize) {
+    if (screenSize.matches) {
+      console.log("Detected: Screen Size More than 1250px!");
+      $("#pageContainer").css("width", "50%");
+    } else {
+      $("#pageContainer").css("width", "100%");
     }
-  </script>
+  }
+</script>
 
 </html>

@@ -29,7 +29,7 @@ body {
   float: left;
   background-color: #343434F3;
   overflow-x: hidden;
-  transition: 0.3s ease-in-out;
+  transition: 0.25s ease-in-out;
   font-size: 18px;
 }
 
@@ -56,10 +56,11 @@ body {
   font-size: 24px;
 }
 
-.title {
+.title, .title:hover {
   color: #ebd8b7;
   padding: 10px;
   text-align: center;
+  text-decoration: none;
 }
 
 /* Responsive Layout */
