@@ -1,0 +1,39 @@
+/* Page Specific CSS */
+
+.top-container{
+    text-align: center;
+    position:relative;
+    border: 2px dotted white;
+}
+
+.inline-container{
+    text-align: center;
+    display: inline-block;
+}
+
+.progress-bar{
+    width: 125px;
+    height: 125px;
+    background-color: white;
+    margin: 10px 10px 0px 10px;
+    border-radius: 50%;
+}
+
+.progress-bar::after{
+
+}
+
+.bottom-container{
+    position:relative;
+    margin-top: 20px;
+}
+
+.add-goal-container{
+    position:relative;
+    border: 2px dotted grey;
+}
+
+.totd-container{
+    position:relative;
+    border: 2px dotted grey;
+}
