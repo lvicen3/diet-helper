@@ -83,23 +83,12 @@
   function hiddenSideMenu() {
     if (active) {
       $("#hiddenMenu").css("width", "40%");
+      $(".hamburgerMenu").css("color", "#99bbad");
       active = false;
     } else {
       $("#hiddenMenu").css("width", "0");
-      active = true;
-    }
-  }
-
-  // Hamburger Interact Color
-  var hiddenToggle = false;
-
-  function hiddenMenuPressed() {
-    if (!hiddenToggle) {
-      $(".hamburgerMenu").css("color", "#99bbad");
-      hiddenToggle = true;
-    } else {
       $(".hamburgerMenu").css("color", "#ebd8b7");
-      hiddenToggle = false;
+      active = true;
     }
   }
 
