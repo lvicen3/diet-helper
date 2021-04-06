@@ -81,7 +81,7 @@
 
 .col2-grid {
   display: grid;
-  grid-template-columns: 125px  auto;
+  grid-template-columns: 125px auto;
   grid-template-rows: auto;
   grid-column-gap: 0;
   text-align: left;
@@ -90,7 +90,7 @@
 
 .col2-grid-auto {
   display: grid;
-  grid-template-columns: auto  auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto;
   grid-column-gap: 0;
   text-align: left;

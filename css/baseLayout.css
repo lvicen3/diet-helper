@@ -1,11 +1,14 @@
+/* This is the CSS file for the base layout. Everything here is used only for
+changing the style of the base html. This should helps eleminate complicated
+mess when there are specific style each page requires. - Avoiding accidental
+deletion/modification */
+
 /* Layout CSS */
 body {
   background-color: #343434;
 }
 
-h1, h2, h3, h4, h5 {
-
-}
+h1, h2, h3, h4, h5 {}
 
 p {
   font-size: 18px;
@@ -30,10 +33,10 @@ p {
   display: block;
   height: 100%;
   width: 0;
-  max-width: 500px;
+  max-width: 360px;
   position: fixed;
   z-index: 1;
-  top: 76px;
+  top: 66px;
   float: left;
   background-color: #343434F3;
   overflow-x: hidden;
@@ -64,10 +67,15 @@ p {
   font-size: 24px;
 }
 
+.title-container {
+  text-align: center;
+}
+
 .title, .title:hover {
   color: #ebd8b7;
+  font-size: 36px;
+  font-weight: 600;
   padding: 10px;
-  text-align: center;
   text-decoration: none;
 }
 

@@ -18,6 +18,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+  <!-- Script -->
+  <script src="js/scripts/navLayout.js"></script>
+
   <!-- Stylesheets -->
   <link id="layoutType" rel="stylesheet" href="css/baseLayout.css">
   <link rel="stylesheet" href="css/progress.css">
@@ -33,10 +36,8 @@
             <i class="fas fa-hamburger hamburgerMenu hidden-menu"></i>
           </a>
         </div>
-        <div class="col-10">
-          <a href="index.html" class="title">
-            <h1>Foodipedia</h1>
-          </a>
+        <div class="col-10 title-container">
+          <a href="index.html" class="title">Foodipedia</a>
         </div>
         <div class="col-1">
           <!-- Helps to center Title -->
@@ -102,8 +103,8 @@
         <div class="inline-container">
             <div class="progress-bar"></div>
             <div style="color: white">Carbs Displacement</div>
-        </div>    
-        
+        </div>
+
     </div>
 
     <div class="bottom-container">
@@ -128,7 +129,7 @@
                                 Goal Suggestion 1
                             </span>
                         </div>
-                        
+
                         <div>
                             <span style="color:white;">
                                 <button style="border-radius: 50%; width: 20px; height:20px;"></button>
@@ -155,14 +156,14 @@
 
             </div>
         </div>
-        
+
         <div class="inline-container" style="width:34%;">
             <div class="totd-container">
                 <h4 style="border-bottom:2px dotted grey; color:white;">Tip of the Day</h4>
                 <div style="color:white;">Honestly, I wish I had a tip of the day that I could put here but I guess this filler text will have to do for now. Good luck out there champ.</div>
-            </div>  
+            </div>
         </div>
-        
+
 
 
     </div>
@@ -172,46 +173,4 @@
 
   </section>
 </body>
-
-<script type="text/javascript">
-  var active = true;
-
-  function hiddenSideMenu() {
-    if (active) {
-      $("#hiddenMenu").css("width", "40%");
-      active = false;
-    } else {
-      $("#hiddenMenu").css("width", "0");
-      active = true;
-    }
-  }
-
-  // Hamburger Interact Color
-  var hiddenToggle = false;
-
-  function hiddenMenuPressed() {
-    if (!hiddenToggle) {
-      $(".hamburgerMenu").css("color", "#99bbad");
-      hiddenToggle = true;
-    } else {
-      $(".hamburgerMenu").css("color", "#ebd8b7");
-      hiddenToggle = false;
-    }
-  }
-
-  // Adjust to Large Window
-  var largeScreen = window.matchMedia('screen and (min-width: 1500px)');
-  largeWindow(largeScreen);
-  largeScreen.addListener(largeWindow);
-
-  function largeWindow(screenSize) {
-    if (screenSize.matches) {
-      console.log("Detected: Screen Size More than 1250px!");
-      $("#pageContainer").css("width", "50%");
-    } else {
-      $("#pageContainer").css("width", "100%");
-    }
-  }
-</script>
-
 </html>
