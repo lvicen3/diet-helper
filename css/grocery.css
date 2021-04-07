@@ -1,0 +1,22 @@
+.column { 
+  width: 50%;
+}
+
+.customselect {
+  margin-top: 60px;
+}
+
+.frame {
+  margin-top: 60px;
+}
+
+.blockbutton{
+  display: block;
+  width: 50%;
+  border: solid;
+  background-color: #ebd8b7;
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+}
