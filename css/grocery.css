@@ -6,8 +6,10 @@
   margin-top: 60px;
 }
 
-.frame {
+.calendar {
   margin-top: 60px;
+  width: 800px;
+  height: 600px;
 }
 
 .blockbutton{
