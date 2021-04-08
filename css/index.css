@@ -1,0 +1,40 @@
+div#CenterPanel{
+    border-style: solid;
+    padding: 40px;
+    background-color: #fffaf2;
+    border-color: #99bbad;
+}
+
+h2 {
+    color: #f5ecdc;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 5px;
+}
+
+#RightPanel{
+    border-left-style: solid;
+}
+
+.row {
+    padding: 5px;
+}
+
+div#RightPanel {
+    max-width: 800px; 
+}
+
+img.right-panel {
+    width: 100%;
+    height: auto;
+}
+
+div.carousel {
+    border-style: solid;
+    border-color: #99bbad;
+}
