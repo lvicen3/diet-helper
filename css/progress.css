@@ -3,7 +3,8 @@
 .top-container{
     text-align: center;
     position:relative;
-    border: 2px dotted white;
+    /* border: 2px dotted white; */
+    margin-top: 50px;
 }
 
 .inline-container{
@@ -12,28 +13,39 @@
 }
 
 .progress-bar{
-    width: 125px;
-    height: 125px;
-    background-color: white;
+    width: 165px;
+    height: 165px;
+    background-color: #99bbad;
     margin: 10px 10px 0px 10px;
     border-radius: 50%;
 }
 
 .progress-bar::after{
+    content: "  ";
+    background-color: white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
 
+    position:relative;
+    left: 7.5px;
 }
 
 .bottom-container{
     position:relative;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .add-goal-container{
     position:relative;
-    border: 2px dotted grey;
+    /* border: 2px dotted grey; */
+    background-color: #99bbad;
+    border-radius: 20px;
 }
 
 .totd-container{
     position:relative;
-    border: 2px dotted grey;
+    /* border: 2px dotted grey; */
+    background-color: #99bbad;
+    border-radius: 20px;
 }
