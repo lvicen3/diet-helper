@@ -79,6 +79,10 @@ p {
   text-decoration: none;
 }
 
+.title:hover {
+  color: #99bbad;
+}
+
 /* Responsive Layout */
 #pageContainer {
   margin: 0 auto;
