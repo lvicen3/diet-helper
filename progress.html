@@ -24,6 +24,7 @@
   <!-- Stylesheets -->
   <link id="layoutType" rel="stylesheet" href="css/baseLayout.css">
   <link rel="stylesheet" href="css/progress.css">
+
 </head>
 
 <body>
@@ -78,32 +79,45 @@
     </div>
 
 
-
-
     <div class="top-container">
         <div class="inline-container">
-            <div class="progress-bar"></div>
+            <div class="progress-bar prog1" id="prog1">
+              <div class="overlay" id="p1" style="color: black;">5lbs<br>---<br>30lbs</div>
+            </div>
             <div style="color: #ebd8b7">Weight Loss</div>
+            <button onclick="showut(1)" style="border-radius: 10px;" onclick="">Update</button>
         </div>
 
         <div class="inline-container">
-            <div class="progress-bar"></div>
+            <div class="progress-bar prog2" id="prog2">
+              <div class="overlay" id="p2" style="color: black;">1640kcal<br>---<br>2050kcal</div>
+            </div>
             <div style="color: #ebd8b7">Calory Consumption</div>
+            <button onclick="showut(2)" style="border-radius: 10px;" onclick="">Update</button>
         </div>
 
         <div class="inline-container">
-            <div class="progress-bar"></div>
+            <div class="progress-bar prog3" id="prog3">
+              <div class="overlay" id="p3" style="color: black;">65 calories<br>---<br>175 calories</div>
+            </div>
             <div style="color: #ebd8b7">Calories Burned</div>
+            <button onclick="showut(3)" style="border-radius: 10px;" onclick="">Update</button>
         </div>
 
         <div class="inline-container">
-            <div class="progress-bar"></div>
+            <div class="progress-bar prog4" id="prog4">
+              <div class="overlay" id="p4" style="color: black;">2 days<br>of<br>7 days</div>
+            </div>
             <div style="color: #ebd8b7">Consistency</div>
+            <button onclick="showut(4)" style="border-radius: 10px;" onclick="">Update</button>
         </div>
 
         <div class="inline-container">
-            <div class="progress-bar"></div>
+            <div class="progress-bar prog5" id="prog5">
+              <div class="overlay" id="p5" style="color: black;">25%<br>to<br>45% carbs</div>
+            </div>
             <div style="color: #ebd8b7">Carbs Displacement</div>
+            <button onclick="showut(5)" style="border-radius: 10px;" onclick="">Update</button>
         </div>
 
     </div>
@@ -119,36 +133,36 @@
 
                 <div>
                     <div class="inline-container" style="width:30%; margin: 20px 20px 20px 20px">
-                        <button>Make Your Own Goal</button>
+                        <button style="border-radius: 10px;" onclick="showmyog()">Make Your Own Goal</button>
                     </div>
 
                     <div class="inline-container" style="width:30%; vertical-align: middle; text-align:left; padding-bottom:20px">
                         <h5 style="color:#464f41; text-align:center;">Suggested Goals</h5>
 
                         <div>
-                            <span style="color:#464f41; white-space:nowrap;">
-                                <button style="border-radius: 50%; width: 20px; height:20px;"></button>
+                            <span id="span1" style="color:#464f41; white-space:nowrap;">
+                                <button onclick="addgoal(1)" style="border-radius: 50%; width: 20px; height:20px;"></button>
                                 Create a dietary routine
                             </span>
                         </div>
 
                         <div>
-                            <span style="color:#464f41; white-space:nowrap;">
-                                <button style="border-radius: 50%; width: 20px; height:20px;"></button>
-                                Substitute food groups in your diet
+                            <span id="span2" style="color:#464f41; white-space:nowrap;">
+                                <button onclick="addgoal(2)" style="border-radius: 50%; width: 20px; height:20px;"></button>
+                                Substitute food groups in diet
                             </span>
                         </div>
 
                         <div>
-                            <span style="color:#464f41; white-space:nowrap;">
-                                <button style="border-radius: 50%; width: 20px; height:20px;"></button>
+                            <span id="span3" style="color:#464f41; white-space:nowrap;">
+                                <button onclick="addgoal(3)" style="border-radius: 50%; width: 20px; height:20px;"></button>
                                 Set a fitness goal
                             </span>
                         </div>
 
                         <div>
-                            <span style="color:#464f41; white-space:nowrap;">
-                                <button style="border-radius: 50%; width: 20px; height:20px;"></button>
+                            <span id="span4" style="color:#464f41; white-space:nowrap;">
+                                <button onclick="addgoal(4)" style="border-radius: 50%; width: 20px; height:20px;"></button>
                                 Try a new recipe
                             </span>
                         </div>
@@ -163,17 +177,135 @@
             <div class="totd-container">
                 <h4 style="color:#464f41;">Tip of the Day</h4>
                 <hr style="background-color:white; height:2px; border:none; width:95%">
-                <div style="color:#464f41;">Remember to maintain a healthy diet by balancing your five major food groups. Keep up the good work, you're almost there.</div>
+                <div style="color:#464f41; padding-bottom: 15px;">Remember to maintain a healthy diet by balancing your five major food groups. Keep up the good work, you're almost there.</div>
             </div>
         </div>
-
-
-
     </div>
 
+    <div class="yg-container"> 
+      <div class="g-container" style="color:#464f41;">
+        <h4 style="color:#464f41;">Your Goals</h4>
+        <hr style="background-color:white; height:2px; border:none; width:95%">
+        <ul id="goals-list" style="padding-bottom:15px; text-align: left;">
+        </ul>
+      </div>
+    </div>
 
+    <div id="myog" class="myog-container">
+      <h4 style="color:#464f41;">Add your own Goal</h4>
+      <hr style="background-color:white; height:2px; border:none; width:95%">
+      <input type="text" id="customgoal" style="width:80%; border-right-style:none;border-left-style:none;border-top-style:none; background-color: #99bbad;" placeholder="Enter your goal here"/>
+      <br><br>
+      <button style="border-radius: 10px;" onclick="addowngoal()">Confirm</button>
+    </div>
 
+    <div id="ut" class="update-container">
+      <h4 style="color:#464f41;">Update Tracker</h4>
+      <hr style="background-color:white; height:2px; border:none; width:95%">
+      <input type="text" id="customupdate" style="width:80%; border-right-style:none;border-left-style:none;border-top-style:none; background-color: #99bbad;"/>
+      <br><br>
+      <button style="border-radius: 10px;" onclick="updatetracker()">Confirm</button>
+    </div>
 
   </section>
+
+  <script>
+    var utval = 0;
+
+    function showut(val){
+      document.getElementById('customupdate').focus();
+      if(val==1){
+        document.getElementById('customupdate').placeholder = "Enter number of pounds you lost";
+        utval=1;
+      }
+      if(val==2){
+        document.getElementById('customupdate').placeholder = "Enter number of calories you consumed";
+        utval=2;
+      }
+      if(val==3){
+        document.getElementById('customupdate').placeholder = "Enter number of calories you burned";
+        utval=3;
+      }
+      if(val==4){
+        document.getElementById('customupdate').placeholder = "Enter number of days you used this app";
+        utval=4;
+      }
+      if(val==5){
+        document.getElementById('customupdate').placeholder = "Enter percentage of carbohydrates you replaced";
+        utval=5;
+      }
+
+      document.getElementById("ut").style.opacity = 1;
+      document.getElementById("ut").style.zIndex = 1;
+    }
+
+    function updatetracker(val){
+      if(utval==1){
+        num = document.getElementById("customupdate").value;
+        document.getElementById("p1").innerText = num +' lbs\n---\n30 lbs';
+        percent = (num/30)*180;
+        document.getElementById("prog1").style = "background-image:linear-gradient(0deg, #ebd8b7 50%, transparent 50%), linear-gradient("+percent+"deg, #99bbad 50%, lightgrey 50%);";
+      }
+      if(utval==2){
+        num = document.getElementById("customupdate").value;
+        document.getElementById("p2").innerText = num +' kcal\n---\n2050 kcal';
+        percent = (num/2050)*180;
+        document.getElementById("prog2").style = "background-image:linear-gradient(0deg, #ebd8b7 50%, transparent 50%), linear-gradient("+percent+"deg, #99bbad 50%, lightgrey 50%);";
+      }
+      if(utval==3){
+        num = document.getElementById("customupdate").value;
+        document.getElementById("p3").innerText = num +' calories\n---\n175 calories';
+        percent = (num/175)*180;
+        document.getElementById("prog3").style = "background-image:linear-gradient(0deg, #ebd8b7 50%, transparent 50%), linear-gradient("+percent+"deg, #99bbad 50%, lightgrey 50%);";
+      }
+      if(utval==4){
+        num = document.getElementById("customupdate").value;
+        document.getElementById("p4").innerText = num +' days\nof\n7 days';
+        percent = (num/7)*180;
+        document.getElementById("prog4").style = "background-image:linear-gradient(0deg, #ebd8b7 50%, transparent 50%), linear-gradient("+percent+"deg, #99bbad 50%, lightgrey 50%);";
+      }
+      if(utval==5){
+        num = document.getElementById("customupdate").value;
+        document.getElementById("p5").innerText = num +'%\nto\n45% carbs';
+        percent = (num/45)*180;
+        document.getElementById("prog5").style = "background-image:linear-gradient(0deg, #ebd8b7 50%, transparent 50%), linear-gradient("+percent+"deg, #99bbad 50%, lightgrey 50%);";
+      }
+
+      utval=0;
+      document.getElementById("customupdate").value = '';
+      document.getElementById("ut").style.opacity = 0;
+      document.getElementById("ut").style.zIndex = -9999;
+    }
+
+    function addgoal(val){
+      var goaltext = document.getElementById('span'+val).innerText;
+      var li = document.createElement('li');
+      li.textContent = goaltext;
+      document.getElementById('goals-list').appendChild(li);
+
+      document.getElementById('span'+val).style.opacity = 0;
+      document.getElementById('span'+val).remove();
+    }
+
+    function showmyog() {
+      document.getElementById("myog").style.opacity = 1;
+      document.getElementById("myog").style.zIndex = 1;
+    }
+
+    function addowngoal() {
+      if(document.getElementById('customgoal').value != ''){
+        var goaltext = document.getElementById('customgoal').value;
+        var li = document.createElement('li');
+        li.textContent = goaltext;
+        document.getElementById('goals-list').appendChild(li);
+      }
+
+      document.getElementById("customgoal").value = '';
+      document.getElementById("myog").style.opacity = 0;
+      document.getElementById("myog").style.zIndex = -9999;
+    }
+  </script>
+
 </body>
+
 </html>
