@@ -74,7 +74,7 @@ It is the base layout for all the pages - think of it as the foundation. -->
         <h5 class="custom-icon-text">Account</h5>
       </a>
       <br>
-      <a href="#" class="custom-action">
+      <a href="signout.html" class="custom-action">
         <i class="fas fa-sign-out-alt custom-icon"></i>
         <h5 class="custom-icon-text">Sign Out</h5>
       </a>
@@ -100,13 +100,13 @@ It is the base layout for all the pages - think of it as the foundation. -->
             <div style = "margin-top: 250px;">
                 <button type = "button" class = "blockbutton"  style = "margin: 0 auto;" onclick="sendList(); return false">Share this list!</button>
               <script> function sendList() {
-                var link = "mailto:me@example.com?subject=" 
+                var link = "mailto:me@example.com?subject="
                  + encodeURIComponent("My Grocery List") + "&body="
-                 + encodeURIComponent("Copy and paste your grocery list here!"); 
+                 + encodeURIComponent("Copy and paste your grocery list here!");
 
                  window.location.href = link;
               }</script>
-            
+
               </div>
         </div>
 
