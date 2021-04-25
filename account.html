@@ -32,7 +32,7 @@
       <div class="row align-items-center" style="margin-right: 0">
         <div class="col-1">
           <!-- Simple Hamburger Style Menu -->
-          <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu(); hiddenMenuPressed();">
+          <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu()">
             <i class="fas fa-hamburger hamburgerMenu hidden-menu"></i>
           </a>
         </div>
@@ -80,46 +80,52 @@
     <div class="top-container">
       <div class="row align-items-center" style="margin-right: 0">
         <div class="col-6">
+          <!-- <div class="image-container">
+            <img src="images/timmy.jpg" alt="Timmy" class="profile-picture">
+          </div>
+          <div class="over-image-context">
+            <h4 class="image-text">CHANGE AVATAR </h4>
+          </div> -->
           <img src="images/timmy.jpg" alt="Timmy" class="profile-picture">
         </div>
         <div class="col-6">
           <div class="module">
             <div class="col2-grid">
               <h4 class="module-one-heading">Name: </h4>
-              <input type="text" name="Name" value="Timmy" class="custom-input">
+              <input id="nameField" type="text" name="Name" placeholder="Timmy" class="custom-input" oninput="enableSave()">
             </div>
             <hr>
             <div class="col2-grid">
               <h4 class="module-one-heading">Age: </h4>
-              <input type="text" name="Age" value="26" class="custom-input">
+              <input id="ageField" type="text" name="Age" placeholder="26" class="custom-input" oninput="enableSave()">
             </div>
             <hr>
             <div class="col2-grid">
               <h4 class="module-one-heading">Gender: </h4>
-              <input type="text" name="Gender" value="Male" class="custom-input">
+              <input id="genderField" type="text" name="Gender" placeholder="Male" class="custom-input" oninput="enableSave()">
             </div>
             <hr>
             <div class="col2-grid">
               <h4 class="module-one-heading">Contact: </h4>
-              <input type="text" name="Contact" value="(312) 996-7000" class="custom-input">
+              <input id="contactField" type="text" name="Contact" placeholder="(312) 996-7000" class="custom-input" oninput="enableSave()">
             </div>
             <hr>
             <div class="col2-grid">
               <h4 class="module-one-heading">Email: </h4>
-              <input type="text" name="Email" value="timmyTurner@gmail.com" class="custom-input">
+              <input id="emailField" type="text" name="Email" placeholder="timmyTurner@gmail.com" class="custom-input" oninput="enableSave()">
             </div>
             <hr>
             <div class="col2-grid">
               <h4 class="module-one-heading">Password: </h4>
-              <input type="password" name="Password" value="password" class="custom-input">
+              <input id="passwordField" type="password" name="Password" placeholder="Change Password" class="custom-input" oninput="enableSave()">
             </div>
 
             <div class="row editOption">
               <div class="col-6">
-                <input type="button" name="Save" value="Save" class="save-cancel-btn" onclick="">
+                <input id="saveButton" type="button" name="Save" value="Save" class="save-cancel-btn" onclick="dataAlert()">
               </div>
               <div class="col-6">
-                <input type="button" name="Cancel" value="Cancel" class="save-cancel-btn" onclick="">
+                <input id="cancelButton" type="button" name="Cancel" value="Cancel" class="save-cancel-btn" onclick="dataClear(); dataClearAlert()">
               </div>
             </div>
           </div>
@@ -136,15 +142,48 @@
             <div class="module-content-2">
               <div class="col2-grid-auto">
                 <h5><u>Cardio Activities:</u></h5>
-                <p>2 days</p>
+                <!-- <p>2 days</p> -->
+                <div class="dropdown-container">
+                  <select class="form-select custom-select" aria-label="dropdown" onchange="enableSaveWorkout()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                  </select>
+                  <span><p>day(s)</p></span>
+                </div>
               </div>
+              <br>
               <div class="col2-grid-auto">
                 <h5><u>Strength Activities:</u></h5>
-                <p>3 days</p>
+                <div class="dropdown-container">
+                  <select class="form-select custom-select" aria-label="dropdown" onchange="enableSaveWorkout()">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                  </select>
+                  <span><p>day(s)</p></span>
+                </div>
               </div>
+              <br>
               <div class="col2-grid-auto">
                 <h5><u>Calories Burned:</u></h5>
                 <p>500/day</p>
+              </div>
+              <div class="row editOption-workout">
+                <div class="col-6">
+                  <input id="saveButtonWorkout" type="button" name="Save" value="Save" class="save-cancel-btn" onclick="dataAlert()">
+                </div>
+                <div class="col-6">
+                  <input id="cancelButtonWorkout" type="button" name="Cancel" value="Cancel" class="save-cancel-btn" onclick="dataClearAlert()">
+                </div>
               </div>
             </div>
           </div>
@@ -154,14 +193,28 @@
             <h3>Diet</h3>
             <hr>
             <div class="module-content-2">
-              <h5><u>Ultra-Low-Fat Diet</u></h5>
+              <div class="dropdown-container-diet">
+                <select id="dietOption" class="form-select custom-select-diet" aria-label="dropdown" onchange="dietChangeAlert()">
+                  <option value="Ultra-Low-Fat" selected><h5><u>Ultra-Low-Fat</u></h5></option>
+                  <option value="Intermittent Fasting"><h5><u>Intermittent Fasting</u></h5></option>
+                  <option value="Plant-based "><h5><u>Plant-based</u></h5></option>
+                  <option value="Paleo"><h5><u>Paleo</u></h5></option>
+                  <option value="Mediterranean"><h5><u>Mediterranean</u></h5></option>
+                  <option value="DASH"><h5><u>DASH</u></h5></option>
+                  <option value="Low-carb"><h5><u>Low-carb</u></h5></option>
+                </select>
+              </div>
               <p>
                 <em>Explanation:</em>
                 Restricts your consumption of fat to under 10% of daily calories.
-                Intake needs to stay under 10% of total calories to produce health
-                benefits and weight loss.
+                Intake must stay under 10% of total calories for health benefits
+                and weight loss.
               </p>
             </div>
+            <!-- <div class="dietBtn-container">
+              <input class="dietBtn" type="button" name="Change Diet" value="Change Diet" onclick="">
+            </div> -->
+          </div>
           </div>
         </div>
       </div>
@@ -185,6 +238,9 @@
                 <p>5 / 16</p>
               </div>
             </div>
+            <div class="goalBtn-container">
+              <input class="goalBtn" type="button" name="Change Goal" value="Change Goal" onclick="changeGoal()">
+            </div>
           </div>
         </div>
         <div class="col-md-6" style="padding-left:0">
@@ -193,8 +249,13 @@
             <hr>
             <div class="module-content-2">
               <div class="col2-grid-auto">
-                <h5><u>Time (Under):</u></h5>
-                <p>30 minutes</p>
+                <h5><u>Time:</u></h5>
+                <div class="slider-container">
+                  <input type="range" min="10" max="90" value="30" class="slider" id="sliderRange">
+                  <br>
+                  <p>Under <span id="sliderOutput"></span> Minutes</p>
+                </div>
+                <br>
               </div>
               <div class="col2-grid-auto">
                 <h5><u>Expertise:</u></h5>
@@ -215,6 +276,75 @@
     </div>
 
   </section>
+
+<script type="text/javascript">
+  var range = document.getElementById("sliderRange");
+  var output = document.getElementById("sliderOutput");
+  output.innerHTML = range.value;
+
+  range.oninput = function() {
+    output.innerHTML = this.value;
+  }
+
+  $(document).ready(function() {
+    $("#saveButton").attr("disabled", "disabled");
+    $("#saveButtonWorkout").attr("disabled", "disabled");
+    $("#cancelButton").attr("disabled", "disabled");
+    $("#cancelButtonWorkout").attr("disabled", "disabled");
+  });
+
+  function enableSave() {
+    $("#saveButton").removeAttr("disabled", "disabled");
+    $("#cancelButton").removeAttr("disabled", "disabled");
+  }
+
+  function enableSaveWorkout() {
+    $("#saveButtonWorkout").removeAttr("disabled", "disabled");
+    $("#cancelButtonWorkout").removeAttr("disabled", "disabled");
+  }
+
+  function dataAlert() {
+    alert("Information Updated - (NO Backend!)");
+    $("#saveButton").attr("disabled", "disabled");
+    $("#saveButtonWorkout").attr("disabled", "disabled");
+
+    $("#cancelButton").attr("disabled", "disabled");
+    $("#cancelButtonWorkout").attr("disabled", "disabled");
+  }
+
+  function dataClearAlert() {
+    alert("Information Not Changed");
+    $("#saveButton").attr("disabled", "disabled");
+    $("#saveButtonWorkout").attr("disabled", "disabled");
+
+    $("#cancelButton").attr("disabled", "disabled");
+    $("#cancelButtonWorkout").attr("disabled", "disabled");
+  }
+
+  function dietChangeAlert() {
+    var select = document.getElementById("dietOption");
+    var selectedValue = select.options[select.selectedIndex].value;
+    alert("Information Changed: " + selectedValue + " - Backend NOT Implemented");
+  }
+
+  function dataClear(){
+    document.getElementById("nameField").value = '';
+    document.getElementById("ageField").value = '';
+    document.getElementById("genderField").value = '';
+    document.getElementById("contactField").value = '';
+    document.getElementById("emailField").value = '';
+    document.getElementById("passwordField").value = '';
+  }
+
+  function changeGoal() {
+    var notice = window.confirm("Do you want to be redirected to Goals & Plans Page?");
+    if(notice) {
+      window.alert("Redirecting...");
+      window.location.href = "progress.html";
+    }
+  }
+
+</script>
 </body>
 
 </html>
