@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+  <title>Login - Foodipedia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <div class="title-container">
+    <h1 class="title">Foodipedia</h1>
+  </div>
+  <hr>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+
+      <div class="col-sm-4 custom-input-style">
+        <span>EMAIL:</span>
+        <input id="email" type="text" class="form-control mb-5" name="email" placeholder="Email">
+
+        <span>PASSWORD:</span>
+        <input id="password" type="password" class="form-control mb-3" name="password" placeholder="Password">
+        <div class="forget-dropdown">
+          <p class="text-link dropdown-toggle" data-toggle="dropdown">FORGOT PASSWORD?</p>
+
+          <div class="dropdown-menu">
+            <p class="dropdown-item disabled">
+              Backend Not Implemented!
+              <br>
+              [Credential]
+              <br>
+              Email: testuser@fakemail.com
+              <br>
+              Pass: 123456789
+            </p>
+          </div>
+        </div>
+        <button id="loginButton" class="bt btn-lg active btn-block custom-login" role="button">Login</button>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var email = "testuser@fakemail.com";
+    var password = "123456789";
+
+    $(document).ready(function() {
+      $('#password').keypress(function(event) {
+        if (event.keyCode === 13) {
+          if (($('#email').val() == email) && ($('#password').val() == password)) {
+            window.location = "index.html";
+          } else {
+            alert("Invalid User Name or Password");
+          }
+        }
+      });
+
+      $('#loginButton').click(function() {
+        if (($('#email').val() == email) && ($('#password').val() == password)) {
+          window.location = "index.html";
+        } else {
+          alert("Invalid User Name or Password");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

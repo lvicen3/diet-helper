@@ -1,0 +1,54 @@
+/* This is the CSS file for the base layout. Everything here is used only for
+changing the style of the base html. This should helps eleminate complicated
+mess when there are specific style each page requires. - Avoiding accidental
+deletion/modification */
+
+/* Layout CSS */
+body {
+  background-color: #343434;
+}
+
+h1, h2, h3, h4, h5 {}
+
+p {
+  font-size: 18px;
+}
+
+hr {
+  background-color: white;
+  height: 2px;
+  border: none;
+  width: 95%;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title, .title:hover {
+  color: #ebd8b7;
+  font-size: 48px;
+  font-weight: 600;
+  padding: 25px;
+  text-decoration: none;
+}
+
+.custom-input-style {
+  color: #99bbad;
+}
+
+.forget-dropdown {
+  text-align: right;
+}
+
+.custom-login {
+  background-color: #9a8194;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.custom-login:hover {
+  background-color: #99bbad;
+}
+
+/* End Layout CSS */
