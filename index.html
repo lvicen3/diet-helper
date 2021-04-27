@@ -9,9 +9,6 @@
     <!-- Font Awesome [Logo] -->
     <script src="https://kit.fontawesome.com/9bfc0a438f.js" crossorigin="anonymous"></script>
 
-    <!-- Script -->
-    <script src="js/scripts/navLayout.js"></script>
-
     <!-- Bootstrap and Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -28,7 +25,7 @@
             <div class="row align-items-center" style="margin-right: 0">
               <div class="col-1">
                 <!-- Simple Hamburger Style Menu -->
-                <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu(); hiddenMenuPressed();">
+                <a class="profile-name-link" href="javascript:void(0)" onclick="hiddenSideMenu();">
                   <i class="fas fa-hamburger hamburgerMenu hidden-menu"></i>
                 </a>
               </div>
@@ -95,23 +92,28 @@
                   </div>
               </div>
               <div class="col-8" id='RightPanel'>
-                  <div class="container d-flex justify-content-center">
+                  <div class="container d-flex ">
                       <h3 id="RecipeName"></h3>
                   </div>
                   <div class="container d-flex">
-                      <div class="col-7" id="RecipeContainer">
+                      <div class="col-7" id="RecipeContainer1">
                           <img class="right-panel" src="" alt="" id="RecipeImg">
                           <h3 id="IngredientsHeader"></h3>
-                          <h3 id="RecipeHeader"></h3>
-                          <p id="ReferencePlaceholder"></p>
+                          <p id="IngredientsRefPlaceholder"></p>
                       </div>
                       <div class="col-5">
                           <img id="NutriFacts" class="right-panel" src="" alt="">
                       </div>
                   </div>
+                <div class="container d-flex justify-content-center"> 
+                  <div class="col-12" id="RecipeContainer2">
+                    <h3 id="RecipeHeader"></h3>
+                    <p id="RecipeRefPlaceholder"></p>
+                  </div>
+                </div>
               </div>
           </div>
-          <div class="container ">
+          <div class="col-12">
               <div class="row justify-content-center">
                   <h2>Your Week</h2>
               </div>
@@ -147,6 +149,8 @@
         </div>
     </section>
 
+    <!-- Scripts -->
     <script src="./js/scripts/index.js"></script>
+    <script src="js/scripts/navLayout.js"></script>
 </body>
 </html>

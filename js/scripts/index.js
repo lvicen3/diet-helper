@@ -11,7 +11,9 @@ document.querySelectorAll('.carousel-img').forEach(e=>{
     e.addEventListener('click',click_weekday);
 })
 
-get_day_meals('monday');
+get_day_meals('monday', ()=>{
+    document.querySelector('li.meal-item').click();
+});
 
 function hover_meal(e){
     if(e.target.classList.contains('meal-item') && !e.target.classList.contains('clicked')){
@@ -37,47 +39,51 @@ function click_weekday(e){
 
 function click_meal(e){
     if(e.target.classList.contains('meal-item')){
-        if(e.target.classList.contains('clicked')){
-            e.target.classList.remove('clicked');
-            e.target.style.backgroundColor = 'transparent';
-        } else {
+        if(!e.target.classList.contains('clicked')){
             deselect_items();
             clear_right_panel();
             e.target.style.backgroundColor = '#81b59f'; 
             e.target.classList.add('clicked');
             let recipe_name = e.target.innerHTML;
-            let url = './placeholder_data/recipes/' + recipe_name.toLowerCase().replace(/ /g,"_")+'/';
-            document.getElementById('RecipeImg').src = url + 'img.jpg';
-            document.getElementById('RecipeName').innerHTML = recipe_name;
-            document.getElementById('NutriFacts').src = url + 'nutritional_facts.jpg';
-            document.getElementById('IngredientsHeader').innerHTML = "Ingredients";
-            document.getElementById('RecipeHeader').innerHTML = "Recipe";
-            fetch(url+'recipe.json')
-            .then(res=>{
-                return res.json();
-            })
-            .then(data=>{
-                let parentElement = document.getElementById("RecipeContainer");
-                data.ingredients.forEach(ingredient=>{
-                    const newP = document.createElement("p");
-                    newP.classList.add("dynamic");
-                    newP.innerHTML = ingredient;
-                    parentElement.insertBefore(newP, document.getElementById("RecipeHeader"));
-                });
-                let recipe_counter = 1;
-                data.recipe.forEach(recipe_step=>{
-                    const newP = document.createElement("p");
-                    newP.classList.add("dynamic");
-                    newP.innerHTML = recipe_counter + '. ' + recipe_step;
-                    parentElement.insertBefore(newP, document.getElementById("ReferencePlaceholder"));
-                    recipe_counter++;
-                });
-            })
-            .catch(function(err){
-                console.log(err);
-            });
+
+            display_recipe(recipe_name)
         }
     }
+}
+
+
+function display_recipe(recipe_name){
+    let url = './placeholder_data/recipes/' + recipe_name.toLowerCase().replace(/ /g,"_")+'/';
+        document.getElementById('RecipeImg').src = url + 'img.jpg';
+        document.getElementById('RecipeName').innerHTML = recipe_name;
+        document.getElementById('NutriFacts').src = url + 'nutritional_facts.jpg';
+        document.getElementById('IngredientsHeader').innerHTML = "Ingredients";
+        document.getElementById('RecipeHeader').innerHTML = "Recipe";
+        fetch(url+'recipe.json')
+        .then(res=>{
+            return res.json();
+        })
+        .then(data=>{
+            let parentElementIngredients = document.getElementById("RecipeContainer1");
+            let parentElementRecipe = document.getElementById("RecipeContainer2");
+            data.ingredients.forEach(ingredient=>{
+                const newP = document.createElement("p");
+                newP.classList.add("dynamic");
+                newP.innerHTML = ingredient;
+                parentElementIngredients.insertBefore(newP, document.getElementById("IngredientsRefPlaceholder"));
+            });
+            let recipe_counter = 1;
+            data.recipe.forEach(recipe_step=>{
+                const newP = document.createElement("p");
+                newP.classList.add("dynamic");
+                newP.innerHTML = recipe_counter + '. ' + recipe_step;
+                parentElementRecipe.insertBefore(newP, document.getElementById("RecipeRefPlaceholder"));
+                recipe_counter++;
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+        });
 }
 
 function deselect_items(){
@@ -96,7 +102,7 @@ function clear_right_panel(){
 
 
 // Get local json data
-function get_day_meals(day){
+function get_day_meals(day, callback){
     fetch('./placeholder_data/' + day + '.json')
     .then(res=>{
         return res.json();
@@ -109,10 +115,12 @@ function get_day_meals(day){
             });
             document.getElementById(key).innerHTML = items;
         }
+        callback();
     })
     .catch(function(err){
         console.log(err);
     });
+
 }
 
 function clear_left_panel(){

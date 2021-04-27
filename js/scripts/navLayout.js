@@ -23,8 +23,8 @@ largeScreen.addListener(largeWindow);
 function largeWindow(screenSize) {
   if (screenSize.matches) {
     console.log("Detected: Screen Size More than 1250px!");
-    $("#pageContainer").css("width", "50%");
+    document.querySelector("section#pageContainer").style.width = "50%";
   } else {
-    $("#pageContainer").css("width", "100%");
+    document.querySelector("section#pageContainer").style.width = "100%";
   }
 }
